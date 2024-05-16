@@ -7,7 +7,7 @@ const eventService = new EventService();
 
 EventController.get('/', async (req, res) => {
     let result;
-    if (!req.query) {
+    if (req.query === undefined || Object.keys(req.query).length === 0) {
         result = await eventService.getAllEvents();
     }
     else {
