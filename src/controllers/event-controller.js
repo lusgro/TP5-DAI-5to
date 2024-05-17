@@ -109,4 +109,42 @@ EventController.delete('/:id', verifyToken, async (req, res) => {
     }
 });
 
+EventController.post('/:id/enrollment', verifyToken, async (req, res) => {
+    const id = getInteger(req.params.id);
+    if (id === null) {
+        res.status(400).send('El id de evento debe ser un número entero');
+        return;
+    }
+    const getId = eventService.getById(id);
+    if (!getId) {
+        res.status(404).send('Evento no encontrado');
+        return;
+    }
+    const result = await eventService.enrollAsync(id, req.user.id);
+    if (result) {
+        res.status(201).send();
+    }
+    else {
+        res.status(400).send('Ya no hay cupos disponibles');
+    }
+})
+
+EventController.delete('/:id/enrollment', verifyToken, async (req, res) => {
+    const id = getInteger(req.params.id);
+    if (id === null) {
+        res.status(400).send('El id de evento debe ser un número entero');
+        return;
+    }
+    const result = await eventService.unenrollAsync(id, req.user.id);
+    if (result == 200) {
+        res.status(200).send();
+    }
+    else if (result == 404) {
+        res.status(404).send('Inscripción o evento no encontrado');
+    }
+    else {
+        res.status(400).send('El evento ya ha pasado');
+    }
+});
+
 export default EventController;

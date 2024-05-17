@@ -65,4 +65,12 @@ export default class EventService {
     deleteAsync(id, userId) {
         return this.repo.deleteAsync(id, userId);
     }
+
+    enrollAsync(id, userId) {
+        return this.repo.enrollAsync(id, userId);
+    }
+
+    unenrollAsync(id, userId) {
+        return this.repo.unenrollAsync(id, userId);
+    }
 }

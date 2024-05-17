@@ -328,4 +328,79 @@ export default class EventRepository {
             client.release();
         }
     }
+
+    async enrollAsync(id, userId) {
+        const client = await this.pool.connect();
+        try {
+            const response = await client.query(
+                `SELECT COUNT(*) AS enrolled, e.max_assistance
+                FROM events_enrollments ee
+                INNER JOIN events e ON ee.id_event = e.id
+                WHERE ee.id_user = $1 AND ee.id_event = $2
+                GROUP BY e.max_assistance`,
+                [userId, id]
+            );
+            if (response.rowCount > 0) {
+                if (response.rows[0].enrolled >= response.rows[0].max_assistance) {
+                    return false;
+                }
+            }
+        }
+        catch (error) {
+            console.error(error);
+            return false;
+        }
+        try {
+            await client.query(
+                `INSERT INTO events_enrollments (id_user, id_event, registration_date_time)
+                VALUES ($1, $2, now())`,
+                [userId, id]
+            );
+            return true;
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
+        finally {
+            client.release();
+        }
+    }
+
+    async unenrollAsync(id, userId) {
+        const client = await this.pool.connect();
+        let response;
+        try {
+            response = await client.query(
+                `SELECT COUNT(*) AS enrolled, e.start_date
+                FROM events_enrollments
+                INNER JOIN events e ON events_enrollments.id_event = e.id
+                WHERE id_user = $1 AND id_event = $2
+                GROUP BY e.start_date`,
+                [userId, id]
+            );
+            if (response.rowCount === 0) {
+                return 404;
+            }
+        }
+        catch (error) {
+            console.error(error);
+            return 404;
+        }
+        if (new Date() > response.rows[0].start_date) {
+            return 400;
+        }
+        try {
+            await client.query(
+                `DELETE FROM events_enrollments WHERE id_user = $1 AND id_event = $2`,
+                [userId, id]
+            );
+            return 200;
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
+        finally {
+            client.release();
+        }
+    }       
 }
