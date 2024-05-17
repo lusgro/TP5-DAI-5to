@@ -1,9 +1,23 @@
 import { Router } from 'express';
 import EventService from '../services/event-service.js';
 import { getString, getInteger, getBoolean, getDate } from '../helpers/validaciones-helper.js';
+import jwt from 'jsonwebtoken';
 
 const EventController = Router();
 const eventService = new EventService();
+
+const verifyToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (token == null) return res.sendStatus(401);
+
+    jwt.verify(token, 'secretkey', (err, user) => {
+        if (err) return res.sendStatus(403);
+        req.user = user;
+        next();
+    });
+};
 
 EventController.get('/', async (req, res) => {
     let result;
@@ -57,6 +71,41 @@ EventController.get('/:id/enrollment', async (req, res) => {
     }
     else {
         res.status(404).send('No se encontraron inscripciones que cumplan con los criterios de búsqueda');
+    }
+});
+
+EventController.post('/', verifyToken, async (req, res) => {
+    const result = await eventService.createAsync(req.body, req.user.id);
+    if (result) {
+        res.status(201).send();
+    }
+    else {
+        res.status(500).send('Error en las reglas del negocio');
+    }
+});
+
+EventController.put('/', verifyToken, async (req, res) => {
+    const result = await eventService.updateAsync(req.body, req.user.id);
+    if (result) {
+        res.status(200).send();
+    }
+    else {
+        res.status(400).send('Error en las reglas del negocio');
+    }
+});
+
+EventController.delete('/:id', verifyToken, async (req, res) => {
+    const id = getInteger(req.params.id);
+    if (id === null) {
+        res.status(400).send('El id de evento debe ser un número entero');
+        return;
+    }
+    const result = await eventService.deleteAsync(id, req.user.id);
+    if (result) {
+        res.status(200).send();
+    }
+    else {
+        res.status(400).send('Error en las reglas del negocio');
     }
 });
 

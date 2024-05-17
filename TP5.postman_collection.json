@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "3436db57-381a-4e2d-ab66-08b247ee5a06",
+		"name": "TP5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33700756"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "/user/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"camilorodriguez\",\r\n    \"password\": \"123456\",\r\n    \"first_name\": \"Camilo\",\r\n    \"last_name\": \"Rodriguez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"camilorodriguez\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "province",
+			"item": [
+				{
+					"name": "/province",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTU5MDY1MTksImV4cCI6MTcxNTkxMDExOSwiaXNzIjoieW8ifQ.2TRq1sQ6pknCk5BMWCffulYJfTILxUd9k4vokw0pgWk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/province/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"province",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/province/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTU5MDY1MTksImV4cCI6MTcxNTkxMDExOSwiaXNzIjoieW8ifQ.2TRq1sQ6pknCk5BMWCffulYJfTILxUd9k4vokw0pgWk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/province/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"province",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/province",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTU5MDY1MTksImV4cCI6MTcxNTkxMDExOSwiaXNzIjoieW8ifQ.2TRq1sQ6pknCk5BMWCffulYJfTILxUd9k4vokw0pgWk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pajaros Negros\",\r\n    \"full_name\": \"Provincia de los Pajaros Negros\",\r\n    \"latitude\": \"-33.921500\",\r\n    \"longitude\": \"-40.954500\",\r\n    \"display_order\": \"25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/province/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"province",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/province",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTU5MDY1MTksImV4cCI6MTcxNTkxMDExOSwiaXNzIjoieW8ifQ.2TRq1sQ6pknCk5BMWCffulYJfTILxUd9k4vokw0pgWk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"25\",\r\n    \"name\": \"Pajaro Negro\",\r\n    \"full_name\": \"Provincia del Pajaro Negro\",\r\n    \"latitude\": \"-33.921500\",\r\n    \"longitude\": \"-40.954500\",\r\n    \"display_order\": \"25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/province/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"province",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/province/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTU5MDY1MTksImV4cCI6MTcxNTkxMDExOSwiaXNzIjoieW8ifQ.2TRq1sQ6pknCk5BMWCffulYJfTILxUd9k4vokw0pgWk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/province/27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"province",
+								"27"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "event",
+			"item": [
+				{
+					"name": "/event",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event/:id/enrollment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event/1/enrollment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"1",
+								"enrollment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTU5MTE2NDAsImV4cCI6MTcxNTkxNTI0MCwiaXNzIjoieW8ifQ.n8R-xcoMMnRiNrqBVm4ky5JwOZCWejm4te1SJrAsfHg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Concierto gratuito de Pop\",\r\n    \"description\": \"Concierto de bandas locales de Pop\",\r\n    \"id_event_category\": \"1\",\r\n    \"id_event_location\": \"1\",\r\n    \"start_date\": \"2024-05-20T20:00:00.000Z\",\r\n    \"duration_in_minutes\": 90,\r\n    \"price\": \"0.00\",\r\n    \"enabled_for_enrollment\": \"true\",\r\n    \"max_assistance\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTU5MTE2NDAsImV4cCI6MTcxNTkxNTI0MCwiaXNzIjoieW8ifQ.n8R-xcoMMnRiNrqBVm4ky5JwOZCWejm4te1SJrAsfHg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"name\": \"Concierto benefico de Pop\",\r\n    \"description\": \"Concierto de bandas locales de Pop\",\r\n    \"id_event_category\": 1,\r\n    \"id_event_location\": 1,\r\n    \"start_date\": \"2024-05-20T20:00:00.000Z\",\r\n    \"duration_in_minutes\": 90,\r\n    \"price\": \"0.01\",\r\n    \"enabled_for_enrollment\": \"true\",\r\n    \"max_assistance\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTU5MTE2NDAsImV4cCI6MTcxNTkxNTI0MCwiaXNzIjoieW8ifQ.n8R-xcoMMnRiNrqBVm4ky5JwOZCWejm4te1SJrAsfHg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
