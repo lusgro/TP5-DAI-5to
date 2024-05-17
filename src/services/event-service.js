@@ -1,20 +1,23 @@
 import EventRepository from "../repositories/event-repository.js"
 
 export default class EventService {
+    constructor() {
+        this.repo = new EventRepository();
+    }
+
     getAllEvents() {
-        const repo = new EventRepository();
-        return repo.getAllEvents();
+        return this.repo.getAllEvents();
     }
+
     getById(id) {
-        const repo = new EventRepository();
-        return repo.getById(id);
+        return this.repo.getById(id);
     }
+
     getFilteredEvent(id, name, category, start_date, tag) {
-        const repo = new EventRepository();
-        return repo.getFilteredEvent(id, name, category, start_date, tag);
+        return this.repo.getFilteredEvent(id, name, category, start_date, tag);
     }
+
     getEnrollments(id, firstName, lastName, username, attended, rating) {
-        const repo = new EventRepository();
-        return repo.getEnrollments(id, firstName, lastName, username, attended, rating)
+        return this.repo.getEnrollments(id, firstName, lastName, username, attended, rating);
     }
 }
