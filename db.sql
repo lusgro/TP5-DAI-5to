@@ -71,5 +71,5 @@ create table events_enrollments(
 	registration_date_time timestamp without time zone not null ,
 	attended BOOLEAN,
 	observations text,
-	rating decimal
+	rating integer
 );

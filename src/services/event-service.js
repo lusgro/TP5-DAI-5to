@@ -73,4 +73,8 @@ export default class EventService {
     unenrollAsync(id, userId) {
         return this.repo.unenrollAsync(id, userId);
     }
+
+    rateAsync(id, userId, rating) {
+        return this.repo.rateAsync(id, userId, rating);
+    }
 }

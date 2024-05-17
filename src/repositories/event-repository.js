@@ -402,5 +402,44 @@ export default class EventRepository {
         finally {
             client.release();
         }
-    }       
+    }
+
+    async rateAsync(id, userId, rating) {
+        const client = await this.pool.connect();
+        // verify if user is enrolled and if the event has already started
+        let response;
+        try {
+            response = await client.query(
+                `SELECT COUNT(*) AS enrolled, e.start_date
+                FROM events_enrollments
+                INNER JOIN events e ON events_enrollments.id_event = e.id
+                WHERE id_user = $1 AND id_event = $2
+                GROUP BY e.start_date`,
+                [userId, id]
+            );
+            if (response.rowCount === 0) {
+                return false;
+            }
+        }
+        catch (error) {
+            console.error(error);
+            return false;
+        }
+        if (new Date() < response.rows[0].start_date) {
+            return false;
+        }
+        try {
+            await client.query(
+                `UPDATE events_enrollments SET rating = $1 WHERE id_user = $2 AND id_event = $3`,
+                [rating, userId, id]
+            );
+            return true;
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
+        finally {
+            client.release();
+        }
+    }
 }

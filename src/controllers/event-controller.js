@@ -147,4 +147,29 @@ EventController.delete('/:id/enrollment', verifyToken, async (req, res) => {
     }
 });
 
+EventController.patch('/:id/enrollment/:rating', verifyToken, async (req, res) => {
+    const id = getInteger(req.params.id);
+    if (id === null) {
+        res.status(400).send('El id de evento debe ser un número entero');
+        return;
+    }
+    const getId = eventService.getById(id);
+    if (!getId) {
+        res.status(404).send('Evento no encontrado');
+        return;
+    }
+    const rating = getInteger(req.params.rating);
+    if (rating < 1 || rating > 10) {
+        res.status(400).send('La calificación debe ser un número entero entre 1 y 10');
+        return;
+    }
+    const result = await eventService.rateAsync(id, req.user.id, rating);
+    if (result) {
+        res.status(200).send();
+    }
+    else {
+        res.status(400).send('Error en las reglas del negocio');
+    }
+});
+
 export default EventController;
