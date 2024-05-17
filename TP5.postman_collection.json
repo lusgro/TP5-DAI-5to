@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "3436db57-381a-4e2d-ab66-08b247ee5a06",
+		"_postman_id": "8f92f228-79fc-497d-8547-b217ac0a3434",
 		"name": "TP5",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33700756"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -424,6 +423,46 @@
 								"3"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event/:id/enrollment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTU5NDkxOTUsImV4cCI6MTcxNTk1Mjc5NSwiaXNzIjoieW8ifQ.fbLT53GebSFhJcd51zVhDMkzhgj7yAZXPzyzOPe1jlo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event/2/enrollment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"2",
+								"enrollment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event/:id/enrollment",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
