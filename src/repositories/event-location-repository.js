@@ -25,18 +25,18 @@ export default class EventLocationRepository {
                         'longitude', p.longitude,
                         'display_order', p.display_order
                     )
-                ) AS location
+                ) AS location,
                 json_build_object(
                     'id', u.id, 
                     'first_name', u.first_name, 
                     'last_name', u.last_name, 
                     'username', u.username
-                ) AS creator_user,
+                ) AS creator_user
                 FROM event_locations el
                 INNER JOIN locations l ON el.id_location = l.id
                 INNER JOIN provinces p ON l.id_province = p.id
                 INNER JOIN users u ON el.id_user = u.id`,
-        );
+            );
 
             const rows = result.rows;
             const response = {
@@ -74,13 +74,13 @@ export default class EventLocationRepository {
                         'longitude', p.longitude,
                         'display_order', p.display_order
                     )
-                ) AS location
+                ) AS location,
                 json_build_object(
                     'id', u.id, 
                     'first_name', u.first_name, 
                     'last_name', u.last_name, 
                     'username', u.username
-                ) AS creator_user,
+                ) AS creator_user
                 FROM event_locations el
                 INNER JOIN locations l ON el.id_location = l.id
                 INNER JOIN provinces p ON l.id_province = p.id
@@ -114,17 +114,17 @@ export default class EventLocationRepository {
                         'longitude', p.longitude,
                         'display_order', p.display_order
                     )
-                ) AS location
+                ) AS location,
                 json_build_object(
                     'id', u.id, 
                     'first_name', u.first_name, 
                     'last_name', u.last_name, 
                     'username', u.username
-                ) AS creator_user,
+                ) AS creator_user
                 FROM event_locations el
                 INNER JOIN locations l ON el.id_location = l.id
                 INNER JOIN provinces p ON l.id_province = p.id
-                INNER JOIN users u ON el.id_user = u.id 
+                INNER JOIN users u ON el.id_user = u.id
                 WHERE p.id = $1`,
                 [id]
             );
