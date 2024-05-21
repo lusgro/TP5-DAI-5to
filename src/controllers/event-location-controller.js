@@ -49,4 +49,14 @@ EventLocationController.get('/province/:id', async (req, res) => {
     }
 });
 
+EventLocationController.get('/location/:id', async (req, res) => {
+    const id = getInteger(req.params.id);
+    const result = await eventLocationService.getByLocationAsync(id);
+    if (result) {
+        res.status(200).send(result);
+    } else {
+        res.status(404).send();
+    }
+});
+
 export default EventLocationController;

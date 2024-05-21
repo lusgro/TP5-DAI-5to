@@ -16,4 +16,8 @@ export default class EventLocationService {
     getByProvinceAsync(id) {
         return this.repo.getByProvinceAsync(id);
     }
+
+    getByLocationAsync(id) {
+        return this.repo.getByLocationAsync(id);
+    }
 }
