@@ -406,7 +406,6 @@ export default class EventRepository {
 
     async rateAsync(id, userId, rating) {
         const client = await this.pool.connect();
-        // verify if user is enrolled and if the event has already started
         let response;
         try {
             response = await client.query(

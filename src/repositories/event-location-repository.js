@@ -35,7 +35,7 @@ export default class EventLocationRepository {
                 FROM event_locations el
                 INNER JOIN locations l ON el.id_location = l.id
                 INNER JOIN provinces p ON l.id_province = p.id
-                INNER JOIN users u ON el.id_user = u.id`,
+                INNER JOIN users u ON el.id_creator_user = u.id`,
             );
 
             const rows = result.rows;
@@ -84,7 +84,7 @@ export default class EventLocationRepository {
                 FROM event_locations el
                 INNER JOIN locations l ON el.id_location = l.id
                 INNER JOIN provinces p ON l.id_province = p.id
-                INNER JOIN users u ON el.id_user = u.id 
+                INNER JOIN users u ON el.id_creator_user = u.id 
                 WHERE id = $1`,
                 [id]
             );
@@ -124,7 +124,7 @@ export default class EventLocationRepository {
                 FROM event_locations el
                 INNER JOIN locations l ON el.id_location = l.id
                 INNER JOIN provinces p ON l.id_province = p.id
-                INNER JOIN users u ON el.id_user = u.id
+                INNER JOIN users u ON el.id_creator_user = u.id
                 WHERE p.id = $1`,
                 [id]
             );
