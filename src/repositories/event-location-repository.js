@@ -85,7 +85,7 @@ export default class EventLocationRepository {
                 INNER JOIN locations l ON el.id_location = l.id
                 INNER JOIN provinces p ON l.id_province = p.id
                 INNER JOIN users u ON el.id_creator_user = u.id 
-                WHERE id = $1`,
+                WHERE el.id = $1`,
                 [id]
             );
             return result.rows[0];
