@@ -430,7 +430,7 @@ export default class EventRepository {
         }
         try {
             await client.query(
-                `UPDATE events_enrollments SET rating = $1 WHERE id_user = $2 AND id_event = $3`,
+                `UPDATE events_enrollments SET rating = $1, attended = true WHERE id_user = $2 AND id_event = $3`,
                 [rating, userId, id]
             );
             return true;
