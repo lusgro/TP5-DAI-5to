@@ -1,5 +1,4 @@
-import EventLocationRepository from '../repositories/event-location-repository';
-import { getInteger, getString, getFloat } from '../helpers/validaciones-helper';
+import EventLocationRepository from '../repositories/event-location-repository.js';
 
 export default class EventLocationService {
     constructor() {
