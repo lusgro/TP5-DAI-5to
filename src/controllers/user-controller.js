@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import UserService from '../services/user-service.js';
-import { getString, getInteger, getBoolean, getDate } from '../helpers/validaciones-helper.js';
+import { getString } from '../helpers/validaciones-helper.js';
 import jwt from 'jsonwebtoken';
+import 'dotenv/config';
 
 const UserController = Router();
 const userService = new UserService();
@@ -11,7 +12,7 @@ UserController.post('/login', async (req, res) => {
     const password = getString(req.body.password);
     const result = await userService.login(username, password);
     if (result) {
-        const token = jwt.sign({ id: result.id, username: result.username}, 'secretkey', { expiresIn: '1h', issuer: 'yo' });
+        const token = jwt.sign({ id: result.id, username: result.username}, process.env.SECRET_KEY, { expiresIn: '1h', issuer: 'yo' });
         res.status(201).json({"success": true, "token": token})
     }
     else {

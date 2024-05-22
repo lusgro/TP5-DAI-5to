@@ -16,7 +16,7 @@ export default class UserRepository {
             );
             return result.rows[0];
         } catch (error) {
-            console.log(error);
+            console.error(error);
         } finally {
             client.release();
         }
@@ -31,7 +31,7 @@ export default class UserRepository {
             );
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         } finally {
             client.release();

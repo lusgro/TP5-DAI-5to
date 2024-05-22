@@ -50,7 +50,7 @@ export default class EventLocationRepository {
             };
             return response;
         } catch (error) {
-            console.log(error);
+            console.error(error);
         } finally {
             client.release();
         }
@@ -90,7 +90,7 @@ export default class EventLocationRepository {
             );
             return result.rows[0];
         } catch (error) {
-            console.log(error);
+            console.error(error);
         } finally {
             client.release();
         }
@@ -130,7 +130,7 @@ export default class EventLocationRepository {
             );
             return result.rows;
         } catch (error) {
-            console.log(error);
+            console.error(error);
         } finally {
             client.release();
         }
@@ -171,7 +171,7 @@ export default class EventLocationRepository {
             return result.rows;
         }
         catch (error) {
-            console.log(error);
+            console.error(error);
         } finally {
             client.release();
         }

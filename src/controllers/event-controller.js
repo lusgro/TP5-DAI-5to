@@ -2,6 +2,7 @@ import { Router } from 'express';
 import EventService from '../services/event-service.js';
 import { getString, getInteger, getBoolean, getDate } from '../helpers/validaciones-helper.js';
 import jwt from 'jsonwebtoken';
+import 'dotenv/config';
 
 const EventController = Router();
 const eventService = new EventService();
@@ -12,7 +13,7 @@ const verifyToken = (req, res, next) => {
 
     if (token == null) return res.sendStatus(401);
 
-    jwt.verify(token, 'secretkey', (err, user) => {
+    jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
         if (err) return res.sendStatus(403);
         req.user = user;
         next();

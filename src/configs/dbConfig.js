@@ -1,9 +1,11 @@
+import 'dotenv/config'
+
 const config = {
-    host: 'localhost',
-    database: 'TP5',
-    port: 5432,
-    user: 'postgres',
-    password: '123'
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD
 }
 
 export default config;

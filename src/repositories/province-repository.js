@@ -15,7 +15,7 @@ export default class ProvinceRepository {
             );
             return result.rows;
         } catch (error) {
-            console.log(error);
+            console.error(error);
         } finally {
             client.release();
         }
@@ -30,7 +30,7 @@ export default class ProvinceRepository {
             );
             return result.rows[0];
         } catch (error) {
-            console.log(error);
+            console.error(error);
         } finally {
             client.release();
         }
@@ -45,7 +45,7 @@ export default class ProvinceRepository {
             );
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         } finally {
             client.release();
@@ -61,7 +61,7 @@ export default class ProvinceRepository {
             );
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         } finally {
             client.release();
@@ -77,7 +77,7 @@ export default class ProvinceRepository {
             );
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         } finally {
             client.release();
