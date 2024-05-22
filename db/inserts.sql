@@ -1,4 +1,3 @@
--- Insertar usuarios
 INSERT INTO users (first_name, last_name, username, password)
 VALUES ('Juan', 'Pérez', 'juanperez', 'contraseña123'),
        ('María', 'González', 'mariagonzalez', 'abc@123'),
@@ -30,7 +29,6 @@ VALUES ('CABA', 'Ciudad Autónoma de Buenos Aires', -34.6037, -58.3816, 1),
        ('Chubut', 'Provincia del Chubut', -43.2997, -65.1023, 23),
        ('Catamarca', 'Provincia de Catamarca', -28.4696, -65.7852, 24);
 
--- Insertar ubicaciones
 INSERT INTO locations (name, id_province, latitude, longitude)
 VALUES ('Lugar A', 1, -34.6037, -58.3816),
        ('Lugar B', 2, -32.9478, -60.6557),
@@ -41,25 +39,20 @@ VALUES ('Locación Evento 1', 1, 'Av. Corrientes 123', 100, -34.6037, -58.3816, 
        ('Locación Evento 2', 2, 'Av. Rivadavia 456', 150, -32.9478, -60.6557, 2),
        ('Locación Evento 3', 3, 'Av. Colón 789', 200, -31.4201, -64.1888, 3);
 
--- Insertar categorías de eventos
 INSERT INTO event_categories (name, display_order)
 VALUES ('Concierto', 1),
        ('Conferencia', 2);
 
--- Insertar eventos
 INSERT INTO events (name, description, id_event_category, id_event_location, start_date, duration_in_minutes, price, enabled_for_enrollment, max_assistance, id_creator_user)
 VALUES ('Concierto de Rock', 'Concierto de bandas locales', 1, 1, '2024-05-15 18:00:00', 120, 500.00, TRUE, 100, 1),
        ('Conferencia de Tecnología', 'Últimas tendencias en inteligencia artificial', 2, 2, '2024-06-01 10:00:00', 90, 0.00, TRUE, 50, 2);
 
--- Insertar etiquetas
 INSERT INTO tags (name) VALUES ('Música'), ('Tecnología');
 
--- Insertar eventos_etiquetas
 INSERT INTO events_tags (id_event, id_tag)
 VALUES (1, 1),
        (2, 2);
 
--- Insertar inscripciones a eventos
 INSERT INTO events_enrollments (id_event, id_user, description, registration_date_time, attended, observations, rating)
 VALUES (1, 1, '¡Emocionado por el concierto!', '2024-05-10 14:00:00', TRUE, NULL, 4.5),
        (2, 2, 'Interesado en aprender nuevas tecnologías', '2024-05-10 15:30:00', FALSE, 'Llegué tarde', NULL);

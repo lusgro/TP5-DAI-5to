@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "8f92f228-79fc-497d-8547-b217ac0a3434",
+		"_postman_id": "3436db57-381a-4e2d-ab66-08b247ee5a06",
 		"name": "TP5",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33700756"
 	},
 	"item": [
 		{
@@ -74,7 +75,7 @@
 			"name": "province",
 			"item": [
 				{
-					"name": "/province",
+					"name": "/province/",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -136,7 +137,7 @@
 					"response": []
 				},
 				{
-					"name": "/province",
+					"name": "/province/",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -176,7 +177,7 @@
 					"response": []
 				},
 				{
-					"name": "/province",
+					"name": "/province/",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -252,7 +253,7 @@
 			"name": "event",
 			"item": [
 				{
-					"name": "/event",
+					"name": "/event/",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -434,7 +435,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTU5NDkxOTUsImV4cCI6MTcxNTk1Mjc5NSwiaXNzIjoieW8ifQ.fbLT53GebSFhJcd51zVhDMkzhgj7yAZXPzyzOPe1jlo",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTYzMjU5ODgsImV4cCI6MTcxNjMyOTU4OCwiaXNzIjoieW8ifQ.Yc0NAFtIPT1cU2gLIxfCBENzevlb94cUYAzScoWwiuQ",
 									"type": "string"
 								}
 							]
@@ -442,7 +443,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/event/2/enrollment",
+							"raw": "http://localhost:3000/api/event/4/enrollment",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -451,7 +452,7 @@
 							"path": [
 								"api",
 								"event",
-								"2",
+								"4",
 								"enrollment"
 							]
 						}
@@ -460,6 +461,339 @@
 				},
 				{
 					"name": "/event/:id/enrollment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event/4/enrollment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"4",
+								"enrollment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event/:id/enrollment/:rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTYzMjU5ODgsImV4cCI6MTcxNjMyOTU4OCwiaXNzIjoieW8ifQ.Yc0NAFtIPT1cU2gLIxfCBENzevlb94cUYAzScoWwiuQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event/4/enrollment/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"4",
+								"enrollment",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "event-location",
+			"item": [
+				{
+					"name": "/event-location/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTYzMjU5ODgsImV4cCI6MTcxNjMyOTU4OCwiaXNzIjoieW8ifQ.Yc0NAFtIPT1cU2gLIxfCBENzevlb94cUYAzScoWwiuQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event-location/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event-location",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event-location/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTYzMjU5ODgsImV4cCI6MTcxNjMyOTU4OCwiaXNzIjoieW8ifQ.Yc0NAFtIPT1cU2gLIxfCBENzevlb94cUYAzScoWwiuQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event-location/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event-location",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event-location/province/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTYzMjU5ODgsImV4cCI6MTcxNjMyOTU4OCwiaXNzIjoieW8ifQ.Yc0NAFtIPT1cU2gLIxfCBENzevlb94cUYAzScoWwiuQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event-location/province/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event-location",
+								"province",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event-location/location/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTYzMjU5ODgsImV4cCI6MTcxNjMyOTU4OCwiaXNzIjoieW8ifQ.Yc0NAFtIPT1cU2gLIxfCBENzevlb94cUYAzScoWwiuQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event-location/location/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event-location",
+								"location",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "event-category",
+			"item": [
+				{
+					"name": "/event-category/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTYzNDIyMzEsImV4cCI6MTcxNjM0NTgzMSwiaXNzIjoieW8ifQ.yA1jyK_CkcnjL5F8Q-_nP6Vy-JcAG6DtLwCsWhQ2Pyk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event-category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event-category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event-category/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTYzNDIyMzEsImV4cCI6MTcxNjM0NTgzMSwiaXNzIjoieW8ifQ.yA1jyK_CkcnjL5F8Q-_nP6Vy-JcAG6DtLwCsWhQ2Pyk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event-category/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event-category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event-category/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTYzNDIyMzEsImV4cCI6MTcxNjM0NTgzMSwiaXNzIjoieW8ifQ.yA1jyK_CkcnjL5F8Q-_nP6Vy-JcAG6DtLwCsWhQ2Pyk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Subasta\",\r\n    \"display_order\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event-category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event-category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event-category/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJjYW1pbG9yb2RyaWd1ZXoiLCJpYXQiOjE3MTYzNDIyMzEsImV4cCI6MTcxNjM0NTgzMSwiaXNzIjoieW8ifQ.yA1jyK_CkcnjL5F8Q-_nP6Vy-JcAG6DtLwCsWhQ2Pyk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"Subastita\",\r\n    \"display_order\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event-category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event-category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
 					"request": {
 						"method": "GET",
 						"header": []
